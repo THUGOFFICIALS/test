@@ -7,4 +7,7 @@ I am not the real owner of this bot
 This bot is giving ban so I req u to not deploy this bot 
 
 
-https://heroku.com/deploy?template=https://github.com/THUGOFFICIALS/private-b
+<p align="center">
+<a href = "https://heroku.com/deploy?template=https://github.com/THUGOFFICIALS/private-b"><img src="https://telegra.ph/file/57c4edb389224c9cf9996.png" alt="Press to Takeoff" width="490px"></a></p>
+<br>
+
