@@ -18,13 +18,11 @@ from lynda.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 Hi {}, my name is {}!
-// I am an Anime themed group management bot with a lot of Special Features.
+// I am a group management bot with a lot of Special Features.
 You can find the list of available commands with /help.
 ==========================
--> [Lynda's Repo](https://waa.ai/Lynda)
--> Report [Lynda Support](https://t.me/LyndaEagleSupport) if I go offline
 ==========================
-`Maintained by` @YorktownEagleUnion
+`Maintained by` [THUG](http//s:t.me/brokendeadskull)
 
 """
 
@@ -33,9 +31,7 @@ Hey there! My name is *{}*.
 I'm a part of Eagle Union.
 Have a look at the following for an idea of some of \
 the things I can help you with.
-I'm managed by [Poki](https://t.me/pokurt)
-Chatbot module from [TheRealPhoenixBot](https://github.com/rsktg/TheRealPhoenixBot.git)
-Disaster module from [SaitamaRobot](https://github.com/AnimeKaizoku/SaitamaRobot)
+I'm managed by [THUG](http//s:t.me/brokendeadskull)
 *Main* commands available:
 -> `/start`
 start the bot
@@ -70,7 +66,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("lynda.modules." + module_name)
+    imported_module = importlib.import_module("test.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -147,11 +143,9 @@ def start(update: Update, context: CallbackContext):
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="👥 Add Lynda to your group", url="https://t.me/LyndaRobot?startgroup=new")],
-                [InlineKeyboardButton(text="🙋 Support Group", url="https://t.me/LyndaEagleSupport"),
-                InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/LyndaGLogs")],
+                [InlineKeyboardButton(text="🙋 Support Group", url="https://https://t.me/THUGS_SUPPORT"),
                 [InlineKeyboardButton(text="❔ Help", url="https://t.me/LyndaRobot?start=help"),
-                InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/LyndaUpdateLogs")]])
-            update.effective_message.reply_photo(
+           update.effective_message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
@@ -390,38 +384,6 @@ def get_settings(update: Update, context: CallbackContext):
 
     else:
         send_settings(chat.id, user.id, True)
-
-
-@run_async
-def donate(update: Update, context: CallbackContext):
-    """Donation String"""
-    message = update.effective_message
-    user = message.from_user
-    chat = update.effective_chat  # type: Optional[Chat]
-
-    if chat.type == "private":
-        message.effective_message.reply_text(
-            DONATE_STRING,
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True)
-
-        if OWNER_ID != 254318997 and DONATION_LINK:
-            message.reply_text(
-                "You can also donate to the person currently running me "
-                "[here]({})".format(DONATION_LINK),
-                parse_mode=ParseMode.MARKDOWN)
-
-    else:
-        try:
-            context.bot.send_message(user.id, DONATE_STRING,
-                            parse_mode=ParseMode.MARKDOWN,
-                            disable_web_page_preview=True
-                            )
-
-            message.reply_text("I've PM'ed you about donating to my creator!")
-        except Unauthorized:
-            message.reply_text(
-                "Contact me in PM first to get donation information.")
 
 
 def migrate_chats(update: Update, _):
