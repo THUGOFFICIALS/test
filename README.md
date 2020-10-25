@@ -5,3 +5,6 @@ I am not the real owner of this bot
     <br>
 </p>
 This bot is giving ban so I req u to not deploy this bot 
+
+
+https://heroku.com/deploy?template=https://github.com/THUGOFFICIALS/private-b
