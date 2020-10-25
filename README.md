@@ -4,3 +4,4 @@ I am not the real owner of this bot
     <br>
     <br>
 </p>
+This bot is giving ban so I req u to not deploy this bot 
